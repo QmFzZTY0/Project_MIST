@@ -3,10 +3,20 @@
 
 import time
 import os
-from get_temp import get_temp
-from get_name import get_name
 
 date = 0
+
+def get_name():
+	name = '/home/pi/code/temp_report/log/'+time.strftime('%Y-%m-%d')+'.log'
+	return name
+
+def get_temp():
+	file = open("/sys/class/thermal/thermal_zone0/temp")   
+	temp = float(file.read()) / 1000  
+	file.close()  
+	t = ("temp : %.1f" %temp)[6:] 
+	return t
+
 
 def p_name():
 	result = time.strftime('%Y-%m-%d %X')+'\t'+get_temp()+'\n'

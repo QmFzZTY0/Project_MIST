@@ -3,15 +3,36 @@
 
 import time
 from datetime import datetime, date, timedelta
-from mean import mean
-from median import median
 
 
 yesterday = (date.today() + timedelta(days = -1)).strftime("%Y-%m-%d")
 
 def get_name():
-	name = '/home/pi/code/temp_control/log/'+yesterday+'.log'
+	name = '/home/pi/code/temp_report/log/'+yesterday+'.log'
 	return name
+	
+def median(input_list):
+        p_list = list(input_list)
+        p_list.sort()
+        for i in range(len(p_list)):
+                p_list[i] = float(p_list[i][21:])
+        if len(p_list)%2 == 1:
+                return p_list[int(len(p_list)//2)]
+        else:
+                data_list = [p_list[int(len(p_list)//2-1)],p_list[int(len(p_list)//2)]]
+                return (data_list[1] + data_list[0])/2
+
+def mean(input_list):
+	p_list = list(input_list)
+	temp_sum = 0
+	for i in range(len(p_list)):
+		temp_sum += float(p_list[i][21:])
+	mean = temp_sum / (len(p_list))
+	return mean
+
+
+
+
 data = 0
 
 if data != time.strftime('%d'):
