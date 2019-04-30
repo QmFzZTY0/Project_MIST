@@ -3,12 +3,9 @@
 
 import time
 import os
+from get_name import get_name
 
 date = 0
-
-def get_name():
-	name = '/home/pi/code/temp_report/log/'+time.strftime('%Y-%m-%d')+'.log'
-	return name
 
 def get_temp():
 	file = open("/sys/class/thermal/thermal_zone0/temp")   
@@ -28,3 +25,9 @@ if date != time.strftime('%d'):
 with open(get_name(), 'a') as f:
 	f.write(p_name())
 
+try:
+    os.remove(get_name(-30))
+except OSError:
+    print ('clear')
+else:
+    print ('ok')
