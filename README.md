@@ -4,7 +4,7 @@
 * [sendmail（邮件发送）](#sendmail)
 * [temp_report（温度监控）](#temp_report)
 * [check_in（签到）](#check_in)
-* [trackers_best_ip（bt服务器选择）](*trackers_best_ip)
+* [trackers_best_ip（bt服务器选择）](#trackers_best_ip)
 ### sendmail
 获取ip地址并用邮件发出，如果多次获取到一样ip地址则不发送，需要配置`ip.txt`路径。
 
