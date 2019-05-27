@@ -1,3 +1,6 @@
+#!/usr/local/python3.7
+# -*- coding:utf8 -*-
+
 import requests
 
 

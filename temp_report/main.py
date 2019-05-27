@@ -1,4 +1,4 @@
-#!/usr/local/opt/python-3.7.0/lib/python3.7
+#!/usr/local/python3.7
 # -*- coding: utf-8 -*-  
 
 import time
@@ -15,7 +15,7 @@ def get_temp():
 	return t
 
 
-def p_name():
+def p_res():
 	result = time.strftime('%Y-%m-%d %X')+'\t'+get_temp()+'\n'
 	return result
 
@@ -23,7 +23,7 @@ if date != time.strftime('%d'):
 	open(get_name(), 'a').close()
 	date = time.strftime('%d')
 with open(get_name(), 'a') as f:
-	f.write(p_name())
+	f.write(p_res())
 
 try:
     os.remove(get_name(-30))

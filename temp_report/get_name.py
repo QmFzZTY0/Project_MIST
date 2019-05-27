@@ -1,3 +1,6 @@
+#!/usr/local/python3.7
+# -*- coding:utf8 -*-
+
 from datetime import datetime, date, timedelta
 
 def get_name(inf = 0):

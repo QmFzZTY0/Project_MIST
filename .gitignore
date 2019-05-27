@@ -1,4 +1,5 @@
 *.ini
 *.pyc
-temp_report/log
-
+temp_report/log/
+temp_report/__pycache__/
+*.txt

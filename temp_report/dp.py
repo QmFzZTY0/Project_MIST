@@ -1,4 +1,4 @@
-#!/usr/local/opt/python-3.7.0/lib/python3.7
+#!/usr/local/python3.7
 #-*- coding: utf-8 -*-  
 
 import time
