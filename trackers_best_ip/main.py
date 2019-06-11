@@ -3,11 +3,20 @@
 
 import requests
 
-
-def get_best(website,file_name):
-	res = requests.get(website)
-	res = res.text.replace('\n\n',',')
-	with open(file_name,'w') as f:
-		f.write(res)
-get_best('https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt','best_ip.txt')
-get_best('https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt','best_website.txt')
+l = [] #提前创建空列表存放内容
+website = 'https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt'
+def get_best(website):
+    res = requests.get(website)
+    res = (res.text.replace('\n\n',',')).strip(',')
+    return res
+with open('/home/pi/.config/aria2/aria2.config','r')as f:
+        for i in f:
+            if 'bt-tracker=' not in i:
+                l.append(i)
+            elif 'bt-tracker=' in i:
+                l.append('bt-tracker={}'.format(get_best(website)))
+#print (l)
+with open('/home/pi/.config/aria2/aria2.config','w')as f:
+    for i in l:
+        f.write(i)
+print (ok)
