@@ -23,4 +23,5 @@
 
 ### trackers_best_ip
 获取[速度最快的BT服务器](https://github.com/ngosang/trackerslist)去除回车并加入`,`。
+需要更改aria配置文件位置
 - [x] 自动填写aria配置文件
