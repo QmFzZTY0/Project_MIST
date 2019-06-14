@@ -19,4 +19,4 @@ with open('/home/pi/.config/aria2/aria2.config','r')as f:
 with open('/home/pi/.config/aria2/aria2.config','w')as f:
     for i in l:
         f.write(i)
-print (ok)
+print ('ok')
