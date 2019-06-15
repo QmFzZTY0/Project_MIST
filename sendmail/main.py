@@ -58,7 +58,7 @@ else:
     body = 'rasperberry IP is ' + ip   # 邮件内容，同标题（偷懒）
     msg.attach(MIMEText(body, 'plain'))
     
-    server = smtplib.SMTP(config.get('main','address'), config.get('main','port'))   # 填写163邮箱的发信服务器地址
+    server = smtplib.SMTP(config.get('main','address'), int(config.get('main','port')))   # 填写163邮箱的发信服务器地址
     server.starttls()
     server.login(fromaddr, config.get('main','send_password'))   # xxx代表你的邮件登录密码
     text = msg.as_string()
