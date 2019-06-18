@@ -21,6 +21,14 @@ def mean(input_list):
     mean = temp_sum / (len(p_list))
     return mean
 
+def conver(lis):
+    tem = {}
+    for i in (lis):
+#        tem[i[:19]] = float(i[21:25])
+        tem[i[21:25]] = i[:19]
+    return tem
+
+
 config = ConfigParser()
 if len(config.read('config.ini')) == 0:
     print'配置文件为空,准备创建配置文件'
@@ -35,18 +43,19 @@ if len(config.read('config.ini')) == 0:
     print'配置文件创建完成,请更改配置文件后在次运行'
     exit(0)
 
+
 #日期暂存
 data = 0
 
 if data != time.strftime('%d'):
     with open(get_name(-1),'r') as f:
         origin_list = f.readlines()
+    a = conver(origin_list)
     mean = mean(origin_list)
-    temp_max = max(origin_list)
-    temp_min = min(origin_list)
-    text = ('平均温度是:{:.2f}；最高温度是:{}，发生在{}；最低温度是:{}，发生在{}。'.format(mean,temp_max[21:25],temp_max[:19],temp_min[21:25],temp_min[:19]))
+    temp_max = max(a)
+    temp_min = min(a)
+    text = ('平均温度是:{:.2f}；最高温度是:{}，发生在{}；最低温度是:{}，发生在{}。'.format(mean,temp_max,a[temp_max],temp_min,a[temp_min]))
     print text
-
 
 if config.get('main','send')=='null':
     print'配置文件未修改，停止中'
