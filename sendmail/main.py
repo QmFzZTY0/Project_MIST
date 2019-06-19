@@ -11,6 +11,8 @@ from configparser import ConfigParser
 import io
 
 config = ConfigParser()
+conf = '/home/pi/code/sendmail/config.ini'  #config.ini路径
+#config.ini路径需为绝对路径，否则crontab无法执行
 if len(config.read('config.ini')) == 0:
     print'配置文件为空,准备创建配置文件'
     config.add_section('main')  # 添加 section

@@ -30,7 +30,9 @@ def conver(lis):
 
 
 config = ConfigParser()
-if len(config.read('config.ini')) == 0:
+conf = '/home/pi/code/temp_report/config.ini' #config.ini路径
+#config.ini需使用绝对路径，否则crontab无法执行
+if len(config.read(conf)) == 0:
     print'配置文件为空,准备创建配置文件'
     config.add_section('main')  # 添加 section
     config.set('main', 'send', 'null')
@@ -38,7 +40,7 @@ if len(config.read('config.ini')) == 0:
     config.set('main','address','smtp.163.com')
     config.set('main', 'port', '25')
     config.set('main', 'send_password', 'null')
-    with io.open('config.ini', 'w', encoding='utf-8') as file:
+    with io.open(conf, 'w', encoding='utf-8') as file:
         config.write(file)
     print'配置文件创建完成,请更改配置文件后在次运行'
     exit(0)
