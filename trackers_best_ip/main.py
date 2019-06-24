@@ -2,6 +2,7 @@
 # -*- coding:utf8 -*-
 
 import requests
+import os
 
 l = [] #提前创建空列表存放内容
 website = 'https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt'
@@ -19,4 +20,6 @@ with open('/home/pi/.config/aria2/aria2.config','r')as f:
 with open('/home/pi/.config/aria2/aria2.config','w')as f:
     for i in l:
         f.write(i)
+
+os.system('sudo bash /home/pi/code/trackers_best_ip/reboot.sh')
 print ('ok')
