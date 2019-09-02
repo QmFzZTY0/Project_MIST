@@ -5,7 +5,7 @@ import requests
 import os
 
 l = [] #提前创建空列表存放内容
-website = 'https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt'
+website ='https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt'
 def get_best(website):
     res = requests.get(website)
     res = (res.text.replace('\n\n',',')).strip(',')
