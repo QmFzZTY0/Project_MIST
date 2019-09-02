@@ -1,6 +1,4 @@
-# 为树莓派编写的一些小工具
-
-## 目录
+# 目录
 * [sendmail（邮件发送）](#sendmail)
 * [temp_report（温度监控）](#temp_report)
 * [check_in（签到）](#check_in)
