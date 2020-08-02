@@ -35,6 +35,7 @@ conf = '/home/pi/code/temp_report/config.ini' #config.ini路径
 if len(config.read(conf)) == 0:
     print'配置文件为空,准备创建配置文件'
     config.add_section('main')  # 添加 section
+    config.set('main','status','0')
     config.set('main', 'send', 'null')
     config.set('main', 'receive', 'null')
     config.set('main','address','smtp.163.com')
@@ -61,6 +62,8 @@ if data != time.strftime('%d'):
 
 if config.get('main','send')=='null':
     print'配置文件未修改，停止中'
+    exit(0)
+elif int(config.get('main','status'))==0:
     exit(0)
 else:
     fromaddr = config.get('main','send')  # 填写你的发信邮箱，我选用的是163邮箱
