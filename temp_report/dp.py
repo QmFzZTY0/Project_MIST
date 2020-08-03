@@ -64,6 +64,7 @@ if config.get('main','send')=='null':
     print'配置文件未修改，停止中'
     exit(0)
 elif int(config.get('main','status'))==0:
+    print'program not ready'
     exit(0)
 else:
     fromaddr = config.get('main','send')  # 填写你的发信邮箱，我选用的是163邮箱
